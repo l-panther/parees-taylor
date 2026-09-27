@@ -1,5 +1,6 @@
 ---
 import Navlinks from '../components/Navlinks.astro';
+import { asset } from '../utils/paths';
 ---
 
 <!-- Mobile Sidebar -->
@@ -7,7 +8,7 @@ import Navlinks from '../components/Navlinks.astro';
   <nav class="navbar" id="navbar">
     <div class="container-fluid">
       <a class="navbar-brand" href="#">
-        <img src="/assets/images/logo/logo-toolbar.png" alt="Company logo" width="50" height="50" class="logo">
+        <img src={assets{'assets/images/logo/logo-toolbar.png'} alt="Company logo" width="50" height="50" class="logo">
       </a>
       <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidenav" aria-controls="sidenav" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
