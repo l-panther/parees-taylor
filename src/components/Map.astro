@@ -1,0 +1,72 @@
+<!-- Map -->
+<section id="map" aria-labelledby="map-heading">
+  <div class="main-content">
+    <h2 id="map-heading" class="text-center">Find Us</h2>
+    <div id="map-canvas" role="region" aria-label="Parees Taylor Hair location map" style="height:400px; width:100%;"></div>
+  </div>
+</section>   
+
+<!-- Leaflet CSS -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+<!-- Leaflet JS -->
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
+<script is:inline>
+document.addEventListener("DOMContentLoaded", function() {
+  // Initialize map
+  const map = L.map('map-canvas').setView([51.4320, -0.1140], 16);
+
+  // Add tiles
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 19,
+    attribution: '&copy; OpenStreetMap contributors'
+  }).addTo(map);
+
+  // Red marker icon
+  const redIcon = L.icon({
+    iconUrl: 'https://cdn.jsdelivr.net/gh/pointhi/leaflet-color-markers@master/img/marker-icon-red.png',
+    shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/images/marker-shadow.png',
+    iconSize: [25, 41],       // width, height
+    iconAnchor: [12, 41],     // tip of the marker
+    popupAnchor: [0, -41],    // popup above tip
+    shadowSize: [41, 41]
+  });
+
+  // Store info
+  const store = {
+    name: "Parees Taylor Hair",
+    address: "123 Streatham High Rd, London, SW16 1AA",
+    category: "Hair Salon",
+    coords: [51.4320, -0.1140],
+    description: "Award-winning hair styling and treatment."
+  };
+
+  // Popup content
+  const popupContent = `
+    <div class="store-popup">
+      <strong>${store.name}</strong><br>
+      ${store.address}<br>
+      <em>${store.category}</em><br>
+      ${store.description}<br>
+      <button onclick="window.open('https://www.google.com/maps/dir/?api=1&destination=${store.coords[0]},${store.coords[1]}','_blank')">Get Directions</button>
+    </div>
+  `;
+
+  // Add marker (popup will follow marker naturally)
+  const marker = L.marker(store.coords, { icon: redIcon }).addTo(map);
+  marker.bindPopup(popupContent, { maxWidth: 400 }).openPopup();
+
+  // User location
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(pos => {
+      const userIcon = L.divIcon({ className: 'user-location-dot', html: '📍' });
+      L.marker([pos.coords.latitude, pos.coords.longitude], { icon: userIcon })
+        .addTo(map)
+        .bindPopup("<strong>You are here</strong>");
+    });
+  }
+
+  // Fix map rendering inside Ionic
+  setTimeout(() => map.invalidateSize(), 200);
+});
+</script>

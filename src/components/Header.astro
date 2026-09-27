@@ -1,0 +1,37 @@
+---
+import Navlinks from '../components/Navlinks.astro';
+---
+
+<!-- Mobile Sidebar -->
+<header>
+  <nav class="navbar" id="navbar">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">
+        <img src="/assets/images/logo/logo-toolbar.png" alt="Company logo" width="50" height="50" class="logo">
+      </a>
+      <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidenav" aria-controls="sidenav" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div id="nav-desktop" class="d-none d-lg-flex ms-auto">
+        <ul class="navbar-nav flex-row gap-3">
+          <Navlinks />
+        </ul>
+      </div>
+      <div class="offcanvas offcanvas-end" tabindex="-1" id="sidenav" aria-labelledby="sidenavLabel">
+        <div class="offcanvas-header">
+          <h2 class="offcanvas-title sr-only" id="sidenavLabel">Menu</h2>
+          <button type="button" class="btn-close sidenav-close" data-bs-dismiss="offcanvas" aria-label="Close">
+            
+          </button>
+        </div>
+
+        <div class="offcanvas-body">
+          <ul>
+            <Navlinks />
+          </ul>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>

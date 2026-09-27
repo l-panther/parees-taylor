@@ -1,0 +1,78 @@
+---
+import ServiceCard from './ServiceCard.astro';
+
+// Define your services list with properties for each service.
+const serviceList = [
+    {
+        name: "BASIC",
+        price: "50.00",
+        service1: "Wash hair",
+        service2: "Blow dry",
+        service3: "Wrap",
+        description: "Our basic service"
+    },
+    {
+        name: "EXTRA",
+        price: "50.00",
+        service1: "Oil Treatment",
+        service2: "Moisturise",
+        service3: "Wrap",
+        description: "We provide an extra service"
+    },
+    {
+        name: "RELAXER",
+        price: "60.00",
+        service1: "Wash hair",
+        service2: "Blow dry",
+        service3: "Wrap",
+        description: "If you have relaxed afro hair, we offer a full range of relaxers for all different hair types..."
+    },
+    {
+        name: "COLOUR",
+        price: "50.00",
+        service1: "Highlights",
+        service2: "Full Head",
+        service3: "Custom",
+        description: "At Parees Taylor you can indulge your inner diva with a range of colour treatments for your hair..."
+    },
+    {
+        name: "WEAVE",
+        price: "60.00",
+        service1: "Single Track",
+        service2: "Full Head",
+        service3: "Custom",
+        description: "We do all weaves using a hair net which helps people who may have problem areas..."
+    },
+    {
+        name: "BRIDAL",
+        price: "150.00",
+        service1: "Bride",
+        service2: "Bridesmaids",
+        service3: "Full Service",
+        description: "We offer a full bridal service where we will do hair for your entire bridal party..."
+    }
+];
+---
+
+<!-- Services -->
+<section id="services" aria-labelledby="services-heading" class="section">
+  <div class="container text-center main-content">
+    <article>
+      <h2 id="services-heading">Our Services</h2>
+
+      <div class="row" id="serviceList">
+        {serviceList.map((service, index) => (
+          <ServiceCard 
+          index={index + 1}
+            name={service.name} 
+            price={service.price} 
+            service1={service.service1}
+            service2={service.service2}
+            service3={service.service3}
+            description={service.description}
+          />
+        ))}
+      </div>
+    </article>
+  </div>
+</section>

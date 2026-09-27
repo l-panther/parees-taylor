@@ -1,0 +1,32 @@
+---
+import { COMPANY_NAME, COMPANY_SLOGAN } from '../lib/config';
+const currentYear = new Date().getFullYear();
+---
+
+<!-- Footer -->
+<footer id="footer" class="text-center section" role="contentinfo">
+  <div class="">
+    <h2>Connect With Us</h2>
+
+    <!-- Social Links -->
+    <div class="social-links">
+      <a href="https://www.facebook.com/" target="_blank" aria-label="Like us on Facebook" class="black-text">
+        <i class="fab fa-facebook-f fa-2x"></i>
+      </a>
+      <a href="https://twitter.com/" target="_blank" aria-label="Follow us on Twitter" class="black-text">
+        <i class="fab fa-twitter fa-2x"></i>
+      </a>
+      <a href="https://www.instagram.com" target="_blank" aria-label="Follow us on Instagram" class="black-text">
+        <i class="fab fa-instagram fa-2x"></i>
+      </a>
+    </div>
+
+    <!-- Company Info -->
+    <p class="grey-text text-darken-1 small mt-3">
+      {COMPANY_NAME} Ltd, Registered Office: Maybrook House, 97 Godstone Road, Caterham, Surrey, CR3 6RE. Company No. 07055710
+    </p>
+    <p class="grey-text text-darken-1 small">
+      &copy; {currentYear} {COMPANY_NAME} | {COMPANY_SLOGAN}. By <span class="theme-color">Leroy Russell</span>
+    </p>
+  </div>
+</footer>

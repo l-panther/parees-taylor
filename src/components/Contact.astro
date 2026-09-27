@@ -1,0 +1,291 @@
+<!-- Contact -->
+<section id="contact" class="section" aria-labelledby="contact-heading">
+  <div class="container main-content">
+
+    <!-- Heading -->
+    <div class="row">
+      <div class="col-12">
+        <h2 id="contact-heading" class="text-center">Get In Touch</h2>
+      </div>
+    </div>
+
+    <!-- Form Row -->
+    <div class="row">
+      <div class="col-12">
+
+        <!-- No-JS Fallback -->
+        <noscript>
+          <style>
+            #contactForm[novalidate] { display: none; }
+            #contactForm { display: block; }
+          </style>
+          document.getElementById('contactForm').removeAttribute('novalidate');
+        </noscript>
+
+        <!-- Contact Form -->
+        <form id="contactForm" novalidate>
+
+          <!-- Success/Error Popup -->
+          <div id="popup" hidden class="popup" role="alert" aria-live="assertive" aria-labelledby="popupTitle" aria-describedby="popupMessage">
+            <div id="popupMessage" tabindex="-1">
+              <h2 id="popupTitle" class="sr-only">Form Status</h2>
+              Message sent successfully
+            </div>
+            <button id="closePopupButton" class="close-popup" aria-label="Close message">
+              &times;
+            </button>
+          </div>
+
+          <!-- Form Errors -->
+<div id="form-errors" role="alert" aria-live="assertive" aria-atomic="true" hidden>
+  <div class="form-errors-header">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+      <circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16h.01"/>
+    </svg>
+    <span id="form-errors-count"></span>
+  </div>
+  <ul id="field-errors" class="field-errors"></ul>
+</div>
+      
+          <!-- Name -->
+          <div class="">
+            <label for="name" class="sr-only">Name</label>
+            <input type="text"
+                  id="name"
+                  name="name"
+                  class="form-control"
+                  placeholder="Enter name"
+                  required
+                  minlength="2"
+                  maxlength="50"
+                  pattern="[A-Za-z\s]+"
+                  title="Name should contain letters only">
+
+            <div id="error-name" class="field-error" role="alert"></div>
+          </div>
+
+          <!-- Email -->
+          <div class="">
+            <label for="email" class="sr-only">Email</label>
+            <input type="email"
+                  id="email"
+                  name="email"
+                  class="form-control"
+                  placeholder="Enter email"
+                  required>
+
+            <div id="error-email" class="field-error" role="alert"></div>
+          </div>
+
+          <!-- Service Dropdown -->
+          <div class="">
+            <label for="service" class="sr-only">Service</label>
+            <select id="service" name="service" class="form-select" required>
+              <option value="" disabled selected>Choose service</option>
+              <option value="styling">Basic</option>
+              <option value="colour">Extra</option>
+              <option value="relaxer">Relaxer</option>
+              <option value="colour2">Colour</option>
+              <option value="weave">Weave</option>
+              <option value="bridal">Bridal</option>
+            </select>
+
+            <div id="error-service" class="field-error" role="alert"></div>
+          </div>
+
+          <!-- Message -->
+          <div class="">
+            <label for="message" class="sr-only">Message</label>
+            <textarea id="message"
+                      name="message"
+                      class="form-control"
+                      placeholder="Enter your message"
+                      minlength="10"
+                      maxlength="200"
+                      rows="3"
+                      required></textarea>
+
+            <div id="error-message" class="field-error" role="alert"></div>
+          </div>
+
+          <!-- Word Count -->
+          <div id="wordCount" class="word-count text-muted" aria-live="polite">0 / 200</div>
+
+          <!-- Submit Button -->
+          <button type="submit" class="btn btn-primary w-100">Send Message</button>
+         
+        </form>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<script is:inline>
+  const popup = document.getElementById('popup');
+  const closePopupButton = document.getElementById('closePopupButton');
+  const form = document.getElementById('contactForm');
+
+  const errorDiv = document.getElementById('form-errors');
+  const fieldErrors = document.getElementById('field-errors');
+
+  /* ---------- POPUP ---------- */
+
+  function openPopup() {
+    popup.hidden = false;
+    closePopupButton.focus();
+  }
+
+  function closePopup() {
+    popup.hidden = true;
+    form.focus();
+  }
+
+  closePopupButton.addEventListener('click', closePopup);
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && !popup.hidden) {
+      closePopup();
+    }
+  });
+
+  /* ---------- ERRORS ---------- */
+
+  function clearErrors() {
+    errorDiv.hidden = true;
+    fieldErrors.innerHTML = '';
+
+    document.querySelectorAll('.field-error').forEach(error => {
+      error.textContent = '';
+    });
+
+    document.querySelectorAll('.error').forEach(field => {
+      field.classList.remove('error');
+      field.removeAttribute('aria-invalid');
+    });
+  }
+
+  function showError(fieldId, panelMessage, inlineMessage, errors) {
+    const field = document.getElementById(fieldId);
+    const error = document.getElementById(`error-${fieldId}`);
+
+    errors.push({ fieldId, message: panelMessage });
+
+    if (field) {
+      field.classList.add('error');
+      field.setAttribute('aria-invalid', 'true');
+    }
+
+    if (error) {
+      error.textContent = inlineMessage;
+    }
+  }
+
+  /* ---------- FORM SUBMIT ---------- */
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    clearErrors();
+
+    const errors = [];
+
+    const name = document.getElementById('name');
+    const email = document.getElementById('email');
+    const service = document.getElementById('service');
+    const message = document.getElementById('message');
+
+    /* NAME */
+    if (!name.value.trim()) {
+      showError(
+        'name',
+        'Name is required.',
+        'Enter your name.',
+        errors
+      );
+    } else if (!/^[A-Za-z\s]+$/.test(name.value.trim())) {
+      showError(
+        'name',
+        'Name must contain letters only.',
+        'Letters only.',
+        errors
+      );
+    }
+
+    /* EMAIL */
+    if (!email.value.trim()) {
+      showError(
+        'email',
+        'Email is required.',
+        'Enter your email.',
+        errors
+      );
+    } else if (!email.checkValidity()) {
+      showError(
+        'email',
+        'Please enter a valid email address.',
+        'Invalid email.',
+        errors
+      );
+    }
+
+    /* SERVICE */
+    if (!service.value) {
+      showError(
+        'service',
+        'Service selection is required.',
+        'Select a service.',
+        errors
+      );
+    }
+
+    /* MESSAGE */
+    if (!message.value.trim()) {
+      showError(
+        'message',
+        'Message is required.',
+        'Enter your message.',
+        errors
+      );
+    } else if (message.value.trim().length < 10) {
+      showError(
+        'message',
+        'Message must be at least 10 characters.',
+        'Minimum 10 characters.',
+        errors
+      );
+    }
+
+/* SHOW ERROR PANEL */
+if (errors.length > 0) {
+  const countLabel = document.getElementById('form-errors-count');
+  countLabel.textContent = `${errors.length} field${errors.length > 1 ? 's need' : ' needs'} attention`;
+
+  errors.forEach(({ fieldId, message }) => {
+    const li = document.createElement('li');
+    const link = document.createElement('a');
+    link.href = `#${fieldId}`;
+    link.textContent = message;
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      document.getElementById(fieldId)?.focus();
+    });
+    li.appendChild(link);
+    fieldErrors.appendChild(li);
+  });
+
+  errorDiv.hidden = false;
+  errorDiv.focus?.();
+
+  // auto-focus the first invalid field after a brief pause so screen readers announce the panel first
+  window.setTimeout(() => {
+    document.getElementById(errors[0].fieldId)?.focus();
+  }, 400);
+
+  return;
+}
+
+    /* SUCCESS */
+    form.reset();
+    openPopup();
+  });
+</script>

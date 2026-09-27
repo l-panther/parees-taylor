@@ -1,0 +1,216 @@
+---
+const {
+  index,
+  name,
+  price,
+  service1,
+  service2,
+  service3,
+  description
+} = Astro.props;
+const availServices = [service1, service2, service3];
+---
+<div class="col-lg-4 col-md-6 mb-4">
+
+    <article class="service-card">
+
+        <span class="service-number">
+    {String(index).padStart(2, "0")}
+</span>
+
+        <h3 class="service-title">
+            {name}
+        </h3>
+
+        <div class="service-price">
+
+            <span class="from">
+                FROM
+            </span>
+
+            <span class="currency">£</span>
+
+            <span class="amount">
+                {price}
+            </span>
+
+        </div>
+
+        <ul class="service-list">
+            <li>{service1}</li>
+            <li>{service2}</li>
+            <li>{service3}</li>
+        </ul>
+
+        <p class="service-description">
+            {description}
+        </p>
+
+    </article>
+
+</div>
+<style>
+  #serviceList {
+    row-gap: 2rem;
+}
+
+.service-card {
+    position: relative;
+    height: 100%;
+    padding: 2.75rem;
+    overflow: hidden;
+
+    background: #fff;
+    border-radius: 18px;
+    border: 1px solid #ebe7df;
+
+    box-shadow: 0 18px 45px rgba(0,0,0,.05);
+
+    transition: .35s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 30px 55px rgba(0,0,0,.10);
+}
+
+.service-number{
+
+    position:absolute;
+
+    top:18px;
+    right:25px;
+
+    font-size:5rem;
+    font-weight:700;
+
+    color:#f4f2ec;
+
+    line-height:1;
+
+    user-select:none;
+}
+
+.service-title{
+
+    margin-bottom:2rem;
+
+    font-size:1.4rem;
+    font-weight:700;
+
+    letter-spacing:.18em;
+
+    color:#333;
+
+    text-transform:uppercase;
+
+    position:relative;
+
+    z-index:2;
+}
+
+.service-price{
+
+    margin-bottom:2rem;
+}
+
+.service-price .from{
+
+    display:block;
+
+    margin-bottom:.4rem;
+
+    font-size:.72rem;
+
+    letter-spacing:.25em;
+
+    color:#9c9c9c;
+}
+
+.service-price .currency{
+
+    font-size:1.4rem;
+
+    vertical-align:top;
+
+    color:#74837f;
+}
+
+.service-price .amount{
+
+    font-size:3.4rem;
+
+    font-weight:700;
+
+    color:#74837f;
+
+    line-height:1;
+}
+
+.service-list{
+
+    margin:0;
+    padding:0;
+
+    list-style:none;
+}
+
+.service-list li{
+
+    padding:.8rem 0;
+
+    border-bottom:1px solid #f1f1f1;
+}
+
+.service-list li::before{
+
+    content:"—";
+
+    margin-right:.8rem;
+
+    color:#aeb29c;
+}
+
+.service-description{
+
+    margin-top:2rem;
+
+    padding-top:1.5rem;
+
+    border-top:1px solid #ececec;
+
+    color:#666;
+
+    font-size:.9rem;
+
+    line-height:1.7;
+}
+
+.service-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+    top:0;
+
+    width:0;
+
+    height:4px;
+
+    background:#b8b998;
+
+    transition:.35s;
+}
+
+.service-card:hover::before{
+
+    width:100%;
+}
+
+.service-card:hover .amount{
+
+    color:#a88b55;
+}
+</style>

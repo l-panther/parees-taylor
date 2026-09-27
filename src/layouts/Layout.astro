@@ -1,0 +1,86 @@
+---
+import Header from '../components/Header.astro';
+import { COMPANY_NAME, COMPANY_SLOGAN } from '../lib/config';
+---
+<!doctype html>
+<html lang="en-GB">
+<head>
+	<meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{COMPANY_NAME} | {COMPANY_SLOGAN}</title>
+  <meta name="description" content="Expert hairdressing services by Parees Taylor. Offering professional cuts, styling, coloring, and treatments for both men and women. Book your appointment today!" />
+  <meta name="keywords" content="Hairdresser, Professional Hair Stylist, Haircuts, Hair Styling, Hair Coloring, Men's Haircuts, Women's Haircuts, Hair Treatments, Salon Services, Parees Taylor" />
+
+  <meta name="author" content="Leroy Russell">
+  
+  <!-- Materialize CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+
+  <!-- Google icons -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+  <!-- Splide -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.3/dist/css/splide.min.css">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/logo/logo.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/logo/apple-touch-icon.png">
+
+  <link rel="stylesheet" href="assets/css/normalize.css">
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+
+<body>
+   
+  <Header />
+  <main>
+    <slot/>
+  </main>
+  <a 
+    id="backToTop"
+    class="btn rounded-circle postion-fixed"
+    href="#top"
+    aria-label="Back to top"
+    role="button"
+    data-bs-toggle="tooltip"
+    data-bs-placement="left"
+    title="Back to top"
+  >
+    <i class="bi bi-arrow-up-short" aria-hidden="true"></i>
+  </a>
+  <!-- JavaScript -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script is:inline src="/assets/js/main.js"></script>
+  
+  <!-- Back to top -->
+  <script is:inline>
+    const btn = document.getElementById("backToTop");
+
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 300) {
+        btn.classList.add("show");
+        btn.setAttribute("aria-hidden", "false");
+      } else {
+        btn.classList.remove("show");
+        btn.setAttribute("aria-hidden", "true");
+      }
+    });
+
+    btn.addEventListener("click", (e) => {
+      e.preventDefault();
+
+      const top = document.getElementById("top");
+      if (top) {
+        top.focus(); // move focus for screen readers
+      }
+
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+    });
+
+  </script>
+</body>
+</html>
