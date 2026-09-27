@@ -1,3 +1,7 @@
+---
+import { asset } from '../utils/paths';
+---
+
 <!-- Welcome -->
 <section id="welcome" aria-labelledby="welcome-heading" class="section">
   <div class="container main-content">
@@ -32,7 +36,7 @@
 
         <!-- Remy Hair -->
         <div class="col-sm-12 col-lg-4">
-          <img src="assets/images/main/afro.png" alt="Afro comb icon for Remy hair" class="responsive-img" />
+          <img src={assets{'assets/images/main/afro.png'} alt="Afro comb icon for Remy hair" class="responsive-img" />
           <h3>Remy Hair</h3>
           <p>
             Parees Taylor offers 100% premium Remy hair, known for its natural look,
@@ -42,7 +46,7 @@
 
         <!-- Easy to Maintain -->
         <div class="col-sm-12 col-lg-4">
-          <img src="assets/images/main/comb.png" alt="Scissors and comb icon for easy to maintain" class="responsive-img" />
+          <img src={assets{'assets/images/main/comb.png'} alt="Scissors and comb icon for easy to maintain" class="responsive-img" />
           <h3>Easy to Maintain</h3>
           <p>
             Enjoy hassle-free beauty with easy-to-maintain styles,
@@ -52,7 +56,7 @@
 
         <!-- Consistent Quality -->
         <div class="col-sm-12 col-lg-4">
-          <img src="assets/images/main/quality.png" alt="Badge icon for consistent quality" class="responsive-img" />
+          <img src={assets{'assets/images/main/quality.png'} alt="Badge icon for consistent quality" class="responsive-img" />
           <h3>Consistent Quality</h3>
           <p>
             Experience consistent quality with every service,
