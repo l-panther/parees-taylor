@@ -38,18 +38,22 @@ import { asset } from '../utils/paths';
 </header>
 
 <script>
+  import { Offcanvas } from 'bootstrap';
+
   document.addEventListener('click', (event) => {
-    const link = (event.target as HTMLElement).closest('#sidenav a');
+    const target = event.target as HTMLElement;
+    const link = target.closest<HTMLAnchorElement>('#sidenav a');
 
     if (!link) return;
 
     const sidenav = document.getElementById('sidenav');
 
     if (sidenav) {
-      const closeButton =
-        sidenav.querySelector<HTMLButtonElement>('[data-bs-dismiss="offcanvas"]');
+      const instance = Offcanvas.getInstance(sidenav);
 
-      closeButton?.click();
+      if (instance) {
+        instance.hide();
+      }
     }
   });
 </script>
