@@ -36,3 +36,20 @@ import { asset } from '../utils/paths';
     </div>
   </nav>
 </header>
+
+<script>
+  document.addEventListener('click', (event) => {
+    const link = (event.target as HTMLElement).closest('#sidenav a');
+
+    if (!link) return;
+
+    const sidenav = document.getElementById('sidenav');
+
+    if (sidenav) {
+      const closeButton =
+        sidenav.querySelector<HTMLButtonElement>('[data-bs-dismiss="offcanvas"]');
+
+      closeButton?.click();
+    }
+  });
+</script>
