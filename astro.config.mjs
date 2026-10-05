@@ -1,8 +1,7 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
 
-// https://astro.build/config
 export default defineConfig({
   site: 'https://l-panther.github.io',
-  base: '/parees-taylor/',
+  base: '/parees-taylor/'
 });
