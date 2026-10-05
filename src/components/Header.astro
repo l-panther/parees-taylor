@@ -14,25 +14,37 @@ import { asset } from '../utils/paths';
         <span class="navbar-toggler-icon"></span>
       </button>
 
-      <div id="nav-desktop" class="d-none d-lg-flex ms-auto">
-        <ul class="navbar-nav flex-row gap-3">
-          <Navlinks />
-        </ul>
-      </div>
-      <div class="offcanvas offcanvas-end" tabindex="-1" id="sidenav" aria-labelledby="sidenavLabel">
-        <div class="offcanvas-header">
-          <h2 class="offcanvas-title sr-only" id="sidenavLabel">Menu</h2>
-          <button type="button" class="btn-close sidenav-close" data-bs-dismiss="offcanvas" aria-label="Close">
-            
-          </button>
-        </div>
+    <div id="nav-desktop" class="d-none d-lg-flex ms-auto">
+  <ul class="navbar-nav flex-row gap-3">
+    <Navlinks />
+  </ul>
+</div>
 
-        <div class="offcanvas-body">
-          <ul>
-            <Navlinks />
-          </ul>
-        </div>
-      </div>
+<div
+  class="offcanvas offcanvas-end"
+  tabindex="-1"
+  id="sidenav"
+  aria-labelledby="sidenavLabel"
+>
+  <div class="offcanvas-header">
+    <h2 class="offcanvas-title sr-only" id="sidenavLabel">
+      Menu
+    </h2>
+
+    <button
+      type="button"
+      class="btn-close sidenav-close"
+      data-bs-dismiss="offcanvas"
+      aria-label="Close"
+    ></button>
+  </div>
+
+  <div class="offcanvas-body">
+    <ul>
+      <Navlinks mobile={true} />
+    </ul>
+  </div>
+</div>
     </div>
   </nav>
 </header>
