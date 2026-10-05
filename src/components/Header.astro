@@ -43,41 +43,42 @@ import { asset } from '../utils/paths';
   const sidenav = document.getElementById('sidenav');
 
   if (sidenav) {
-    sidenav.querySelectorAll<HTMLAnchorElement>('a[href^="#"]').forEach((link) => {
+    const links =
+      sidenav.querySelectorAll<HTMLAnchorElement>('a.nav-link[href^="#"]');
+
+    links.forEach((link) => {
       link.addEventListener('click', (event) => {
         event.preventDefault();
 
         const targetId = link.getAttribute('href');
+
         if (!targetId) return;
 
-        const target = document.querySelector(targetId);
+        const target = document.querySelector<HTMLElement>(targetId);
+
         if (!target) return;
 
-        const offcanvas = Offcanvas.getInstance(sidenav);
+        const offcanvas = Offcanvas.getOrCreateInstance(sidenav);
 
-        if (offcanvas) {
-          sidenav.addEventListener(
-            'hidden.bs.offcanvas',
-            () => {
-              target.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
+        sidenav.addEventListener(
+          'hidden.bs.offcanvas',
+          () => {
+            // Let Bootstrap finish restoring focus to the menu button first
+            requestAnimationFrame(() => {
+              requestAnimationFrame(() => {
+                target.scrollIntoView({
+                  behavior: 'smooth',
+                  block: 'start'
+                });
+
+                history.replaceState(null, '', targetId);
               });
+            });
+          },
+          { once: true }
+        );
 
-              history.replaceState(null, '', targetId);
-            },
-            { once: true }
-          );
-
-          offcanvas.hide();
-        } else {
-          target.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start'
-          });
-
-          history.replaceState(null, '', targetId);
-        }
+        offcanvas.hide();
       });
     });
   }
