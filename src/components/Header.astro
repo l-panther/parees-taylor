@@ -40,20 +40,45 @@ import { asset } from '../utils/paths';
 <script>
   import { Offcanvas } from 'bootstrap';
 
-  document.addEventListener('click', (event) => {
-    const target = event.target as HTMLElement;
-    const link = target.closest<HTMLAnchorElement>('#sidenav a');
+  const sidenav = document.getElementById('sidenav');
 
-    if (!link) return;
+  if (sidenav) {
+    sidenav.querySelectorAll<HTMLAnchorElement>('a[href^="#"]').forEach((link) => {
+      link.addEventListener('click', (event) => {
+        event.preventDefault();
 
-    const sidenav = document.getElementById('sidenav');
+        const targetId = link.getAttribute('href');
+        if (!targetId) return;
 
-    if (sidenav) {
-      const instance = Offcanvas.getInstance(sidenav);
+        const target = document.querySelector(targetId);
+        if (!target) return;
 
-      if (instance) {
-        instance.hide();
-      }
-    }
-  });
+        const offcanvas = Offcanvas.getInstance(sidenav);
+
+        if (offcanvas) {
+          sidenav.addEventListener(
+            'hidden.bs.offcanvas',
+            () => {
+              target.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+              });
+
+              history.replaceState(null, '', targetId);
+            },
+            { once: true }
+          );
+
+          offcanvas.hide();
+        } else {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+
+          history.replaceState(null, '', targetId);
+        }
+      });
+    });
+  }
 </script>
