@@ -10,9 +10,16 @@ import { asset } from '../utils/paths';
       <a class="navbar-brand" href="#">
         <img src={asset('assets/images/logo/logo-toolbar.png')} alt="Company logo" width="50" height="50" class="logo">
       </a>
-      <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidenav" aria-controls="sidenav" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+     <button
+      class="navbar-toggler d-lg-none"
+      id="menuToggle"
+      type="button"
+      aria-controls="sidenav"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
     <div id="nav-desktop" class="d-none d-lg-flex ms-auto">
   <ul class="navbar-nav flex-row gap-3">
@@ -49,3 +56,29 @@ import { asset } from '../utils/paths';
   </nav>
 </header>
 
+
+<script is:inline>
+  document.addEventListener('DOMContentLoaded', () => {
+    const toggle = document.getElementById('menuToggle');
+    const sidenav = document.getElementById('sidenav');
+
+    if (!toggle || !sidenav || !window.bootstrap) return;
+
+    const menu = new bootstrap.Offcanvas(sidenav);
+
+    toggle.addEventListener('click', () => {
+      menu.show();
+      toggle.setAttribute('aria-expanded', 'true');
+    });
+
+    sidenav.addEventListener('hidden.bs.offcanvas', () => {
+      toggle.setAttribute('aria-expanded', 'false');
+    });
+
+    sidenav.querySelectorAll('a[href^="#"]').forEach((link) => {
+      link.addEventListener('click', () => {
+        menu.hide();
+      });
+    });
+  });
+</script>
