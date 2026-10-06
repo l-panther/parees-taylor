@@ -922,6 +922,18 @@ textarea {
   .main-content {
     padding: 4em 2em;
   }
+  
+  #image-slider {
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
+  }
+
+  #image-slider .splide__slide img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
 
   #serviceList dl {
     width: 100%;
