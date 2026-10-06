@@ -799,12 +799,16 @@ textarea {
   */
   #image-slider {
     width: 100vw;
-    max-width: none;
-
     margin-left: calc(50% - 50vw);
     margin-right: calc(50% - 50vw);
   }
 
+  #image-slider .splide__slide img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  
   #image-slider .splide__track,
   #image-slider .splide__list {
     width: 100%;
@@ -813,14 +817,6 @@ textarea {
   #image-slider .splide__slide {
     width: 100%;
   }
-
-  #image-slider .splide__slide img {
-    display: block;
-    width: 100%;
-    height: auto;
-    max-width: none;
-  }
-
 
   /* -------------------------
      BACK TO TOP
@@ -921,18 +917,6 @@ textarea {
 
   .main-content {
     padding: 4em 2em;
-  }
-  
-  #image-slider {
-    width: 100vw;
-    margin-left: calc(50% - 50vw);
-    margin-right: calc(50% - 50vw);
-  }
-
-  #image-slider .splide__slide img {
-    width: 100%;
-    height: auto;
-    display: block;
   }
 
   #serviceList dl {
