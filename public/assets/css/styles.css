@@ -34,7 +34,7 @@ html {
 
 html,
 body {
-  font: 400 15px/1.8 'Poppins', sans-serif;
+  font: 200 15px/1.8 'Poppins', sans-serif;
   line-height: 1.6;
   letter-spacing: 1px;
   background: var(--site-bg);
@@ -771,7 +771,6 @@ textarea {
   */
   p {
     font-size: 14px;
-    font-weight: 300;
     line-height: 1.65;
     letter-spacing: 0.5px;
   }
