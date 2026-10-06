@@ -717,7 +717,6 @@ textarea {
 }
 
 /* ------------------------------- SOCIAL LINKS ------------------------------- */
-
 .social-links {
   display: flex;
   justify-content: center;
@@ -731,21 +730,20 @@ textarea {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: auto;
-  height: auto;
   text-decoration: none;
   padding: 0;
 }
 
-.social-links ion-icon {
+.social-links i {
   display: block;
   font-size: 25px;
   color: var(--light-grey);
-  opacity: 0.4;
+  opacity: 0.6;
 }
 
-.social-links a:hover ion-icon {
+.social-links a:hover i {
   opacity: 1;
+  color: var(--darker-green);
 }
 
 
