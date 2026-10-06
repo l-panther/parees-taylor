@@ -793,29 +793,42 @@ textarea {
      HERO / CAROUSEL
   ------------------------- */
 
-  /*
-    Break the carousel out of the parent padding so the
-    photography uses the full width of the phone.
-  */
-  #image-slider {
+  /* Make hero section full viewport width */
+  #hero {
     width: 100vw;
+    max-width: none;
     margin-left: calc(50% - 50vw);
     margin-right: calc(50% - 50vw);
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+
+  #hero .container,
+  #hero .container-fluid,
+  #hero .main-content,
+  #hero .row,
+  #hero [class*="col-"] {
+    width: 100%;
+    max-width: none;
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+
+  #image-slider,
+  #image-slider .splide__track,
+  #image-slider .splide__list,
+  #image-slider .splide__slide {
+    width: 100%;
+    max-width: none;
   }
 
   #image-slider .splide__slide img {
-    width: 100%;
-    height: auto;
     display: block;
-  }
-  
-  #image-slider .splide__track,
-  #image-slider .splide__list {
     width: 100%;
-  }
-
-  #image-slider .splide__slide {
-    width: 100%;
+    max-width: none;
+    height: auto;
   }
 
   /* -------------------------
