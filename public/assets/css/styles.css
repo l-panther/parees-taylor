@@ -765,10 +765,6 @@ textarea {
     padding: 2.5rem 1.25rem;
   }
 
-  /*
-    Poppins 400 looked too heavy on the small screen.
-    Use the lighter 300 weight for ordinary paragraph copy.
-  */
   p {
     font-size: 14px;
     line-height: 1.65;
@@ -794,40 +790,16 @@ textarea {
   ------------------------- */
 
   /* Make hero section full viewport width */
-  #hero {
-    width: 100vw;
-    max-width: none;
-    margin-left: calc(50% - 50vw);
-    margin-right: calc(50% - 50vw);
-    padding-left: 0 !important;
-    padding-right: 0 !important;
-  }
-
-  #hero .container,
-  #hero .container-fluid,
-  #hero .main-content,
-  #hero .row,
-  #hero [class*="col-"] {
+  #image-slider.main-content {
     width: 100%;
     max-width: none;
-    margin-left: 0;
-    margin-right: 0;
-    padding-left: 0 !important;
-    padding-right: 0 !important;
+    padding: 0;
   }
 
-  #image-slider,
-  #image-slider .splide__track,
-  #image-slider .splide__list,
-  #image-slider .splide__slide {
-    width: 100%;
-    max-width: none;
-  }
-
-  #image-slider .splide__slide img {
+  #image-slider picture,
+  #image-slider img {
     display: block;
     width: 100%;
-    max-width: none;
     height: auto;
   }
 
