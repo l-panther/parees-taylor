@@ -1,6 +1,5 @@
 /*
   CSS for Parees Hairdresser
-  By Leroy Russell
 */
 
 /* ------------------------------ IMPORT FONTS ------------------------------ */
@@ -8,7 +7,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Carter+One&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap');
 
+
 /* ------------------------------- VARIABLES ------------------------------- */
+
 :root {
   --black: #141414;
   --grey: #565656;
@@ -24,12 +25,15 @@
   --padding: 100px;
 }
 
+
 /* ------------------------------- BASE ------------------------------- */
+
 html {
   scroll-behavior: smooth !important;
 }
 
-html, body {
+html,
+body {
   font: 400 15px/1.8 'Poppins', sans-serif;
   line-height: 1.6;
   letter-spacing: 1px;
@@ -37,7 +41,8 @@ html, body {
   color: var(--dark-grey);
 }
 
-.main-content, .nav-content {
+.main-content,
+.nav-content {
   width: 100%;
   max-width: 85rem;
   margin: auto;
@@ -47,10 +52,16 @@ html, body {
   padding: 3rem 1.3rem;
 }
 
-.sr-only { display: none; }
+.sr-only {
+  display: none;
+}
+
 
 /* ------------------------------- TYPOGRAPHY ------------------------------- */
-h1, h2, h3 {
+
+h1,
+h2,
+h3 {
   font-family: var(--text);
   font-weight: 600;
   margin: 0 !important;
@@ -61,12 +72,17 @@ h2 {
   padding-bottom: 1em;
 }
 
+
 /* ------------------------------- BUTTONS ------------------------------- */
-.theme-blue, .active {
+
+.theme-blue,
+.active {
   color: var(--theme-color);
 }
 
+
 /* ------------------------------- SKIP LINKS ------------------------------- */
+
 .skiplink {
   position: absolute;
   left: -10000px;
@@ -83,11 +99,14 @@ h2 {
   color: var(--dark-grey);
 }
 
-a:focus, button:focus {
-  outline: 3px solid var(--darker-green); /* Add a clear outline for keyboard navigation */
+a:focus,
+button:focus {
+  outline: 3px solid var(--darker-green);
 }
 
+
 /* ------------------------------- TO TOP ------------------------------- */
+
 #toTop {
   text-align: center;
   padding: 10px;
@@ -103,70 +122,94 @@ a:focus, button:focus {
 
 #backToTop {
   position: fixed;
+
+  width: 42px;
+  height: 42px;
+
   bottom: 30px;
-  right: -80px; /* hidden off-screen */
+  right: -80px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0;
+  border-radius: 50%;
+
   transition: right 0.3s ease;
+
   z-index: 1000;
+
   background: var(--darker-green);
   box-shadow: 0 0 10px var(--light-grey);
   border: 1px solid var(--darker-green);
 }
 
 #backToTop.show {
-  right: 30px; /* slides in */
+  right: 30px;
 }
 
 #backToTop i {
   color: var(--darkest-green);
   font-weight: bold;
-  font-size: 30px;
+  font-size: 20px;
+  padding: 0;
+  margin: 0;
 }
 
+
 /* -------------------------------- NAVIGATION -------------------------------- */
-#sidenav, #header, #navbar { 
+
+#sidenav,
+#header,
+#navbar {
   background: var(--site-bg);
   color: var(--dark-grey);
   border: transparent !important;
-  opacity: 1
+  opacity: 1;
 }
 
-#sidenav a, #navbar a { 
-  color: var(--darkest-green) ;
+#sidenav a,
+#navbar a {
+  color: var(--darkest-green);
   text-decoration: none;
   text-transform: uppercase;
 }
 
-/* Remove shadow from the inner menu content */
-#navbar { 
-  padding-top: 1em !important; 
-  max-width: 85em; 
-  margin: auto; 
-  background: var(--site-bg) !important; 
+#navbar {
+  padding-top: 1em !important;
+  max-width: 85em;
+  margin: auto;
+  background: var(--site-bg) !important;
 }
 
-#navbar i { font-size: 30px; } 
+#navbar i {
+  font-size: 30px;
+}
 
-.sidenav li:first-of-type { 
+.sidenav li:first-of-type {
   margin-top: 3em;
 }
 
-.offcanvas-body li { 
+.offcanvas-body li {
   padding: 0.5em 1em;
   margin-bottom: 2px;
 }
 
-.offcanvas-body li:hover { 
-  background: var(--darker-green); 
+.offcanvas-body li:hover {
+  background: var(--darker-green);
   color: var(--darkest-green);
   cursor: pointer;
 }
 
-.offcanvas-body .active { 
-  background: var(--darker-green); 
+.offcanvas-body .active {
+  background: var(--darker-green);
   border-bottom: none;
 }
 
+
 /* ------------------------------- LOGO ------------------------------- */
+
 .logo {
   width: 180px;
   margin-top: 12px;
@@ -176,8 +219,11 @@ a:focus, button:focus {
   float: left;
 }
 
+
 /* ------------------------------- HERO ------------------------------- */
-.splide, #image-slider {
+
+.splide,
+#image-slider {
   width: 100%;
 }
 
@@ -187,20 +233,26 @@ a:focus, button:focus {
   display: block;
 }
 
-#image-slider li .is-active { 
+#image-slider li .is-active {
   background-color: var(--green);
   border: 1px solid var(--darker-green);
 }
 
-.splide__arrow { background: var(--darker-green); }
+.splide__arrow {
+  background: var(--darker-green);
+}
 
-#image-slider li { 
+#image-slider li {
   margin-top: -2em;
 }
 
+
 /* ------------------------------- PROMISE ------------------------------- */
-#mobile-menu, #hero, #welcome { 
-  background: var(--site-bg); 
+
+#mobile-menu,
+#hero,
+#welcome {
+  background: var(--site-bg);
 }
 
 #promise {
@@ -212,12 +264,16 @@ a:focus, button:focus {
   margin: 2.5em 0 1em;
 }
 
+
 /* ------------------------------- SERVICES ------------------------------- */
+
 #services {
   background: var(--white);
 }
 
-#serviceList, .card-panel, iframe {
+#serviceList,
+.card-panel,
+iframe {
   margin-top: 2em;
 }
 
@@ -225,8 +281,7 @@ a:focus, button:focus {
   width: 250px;
   border: 1px solid var(--site-compliment);
   border-radius: 20px !important;
-  margin: auto;
-  margin-top: 2.5em;
+  margin: 2.5em auto 0;
 }
 
 #serviceList dl:hover {
@@ -237,7 +292,7 @@ a:focus, button:focus {
   background: var(--mid-grey);
 }
 
-.card-container { 
+.card-container {
   padding: 0.4em;
   text-align: center;
 }
@@ -277,7 +332,9 @@ a:focus, button:focus {
   border-top: 1px solid #eee;
 }
 
+
 /* ------------------------------- ABOUT ------------------------------- */
+
 #about {
   background: var(--site-compliment);
 }
@@ -294,12 +351,15 @@ blockquote {
   padding-left: 2em;
 }
 
+
 /* ------------------------------- CONTACT ------------------------------- */
+
 #contact {
   background: #fff;
 }
 
-#contact h3, #contact dt {
+#contact h3,
+#contact dt {
   font-size: 1.2em;
   font-weight: bold;
   padding-bottom: 1em;
@@ -310,17 +370,20 @@ blockquote {
   border-bottom: 0;
   border-radius: 2em !important;
   max-width: 100%;
-  margin: 0 auto;
-  margin-top: 2em;
+  margin: 2em auto 0;
 }
 
-#contact input, #contact textarea, #contact select, #contact button { 
+#contact input,
+#contact textarea,
+#contact select,
+#contact button {
   border: 1px solid var(--darker-green);
   border-radius: 0.3em;
   padding: 0.5em 1em;
   width: 100%;
 }
-#contact select { 
+
+#contact select {
   padding: 0.5em 1em !important;
 }
 
@@ -343,57 +406,62 @@ blockquote {
 .select-wrapper input.select-dropdown {
   width: 100% !important;
 }
-#contact button { 
-  border-radius: 0.6em !important;
-  margin-top: 2em;
-}
-
-#contact textarea { 
-  padding: 1em;
-}
 
 #contact button {
+  border-radius: 0.6em !important;
+  margin-top: 2em;
   background: var(--darker-green);
   width: 100%;
   padding: 0.6em;
   color: var(--darkest-green);
 }
 
-#contact button:hover { 
+#contact textarea {
+  padding: 1em;
+}
+
+#contact button:hover {
   background: var(--darkest-green);
   color: var(--light-grey);
 }
 
-textarea { 
+textarea {
   min-height: 110px !important;
   max-height: 110px;
   min-width: 100%;
   max-width: 100%;
 }
 
-#contact select, #contact option {
+#contact select,
+#contact option {
   border: 1px solid var(--darker-green);
   border-radius: 0.3em;
   margin: 0.5em 0;
   padding: 0.6em;
   width: 100%;
-  cursor: pointer; /* Add this to change the cursor to a pointer on hover */
+  cursor: pointer;
 }
 
-#contact .select-dropdown, #contact .dropdown-content span { 
-  font-size: 1em !important; 
+#contact .select-dropdown,
+#contact .dropdown-content span {
+  font-size: 1em !important;
   color: var(--darkest-green);
 }
 
-#contact .dropdown-content span { 
-  font-size: 0.9rem !important; 
+#contact .dropdown-content span {
+  font-size: 0.9rem !important;
 }
 
-#contact input:focus, #contact textarea:focus, #contact select:focus { 
+#contact input:focus,
+#contact textarea:focus,
+#contact select:focus {
   outline: 2px solid var(--darker-green);
 }
 
-::placeholder { color: var(--grey); opacity: 0.5; }
+::placeholder {
+  color: var(--grey);
+  opacity: 0.5;
+}
 
 .word-count {
   float: right;
@@ -401,6 +469,9 @@ textarea {
   color: var(--grey);
   margin-top: -10px;
 }
+
+
+/* ------------------------------- FORM ERRORS ------------------------------- */
 
 #form-errors {
   background: #fdf2f2;
@@ -446,10 +517,12 @@ textarea {
   margin-top: 0.3rem;
   margin-bottom: 0.8rem;
   min-height: 1.2rem;
-  width: 80%
+  width: 80%;
 }
 
+
 /* ------------------------------- ERROR HIGHLIGHT ------------------------------- */
+
 .error {
   outline: 1px solid #d32f2f;
 }
@@ -458,8 +531,13 @@ textarea {
   border-color: darkred;
 }
 
+
 /* ------------------------------- POPUP ------------------------------- */
-#contact form, #popup { width: 100%; }
+
+#contact form,
+#popup {
+  width: 100%;
+}
 
 #popup {
   background-color: #c0d1c1;
@@ -497,11 +575,12 @@ textarea {
   cursor: pointer;
 }
 
-.popup p { margin: 0; }
+.popup p {
+  margin: 0;
+}
 
-/* Error popup style */
 .popup.error {
-  background-color: #f44336; /* Red for error */
+  background-color: #f44336;
 }
 
 .close-popup {
@@ -515,10 +594,13 @@ textarea {
   cursor: pointer;
 }
 
-/* ------------------------------- MAP ------------------------------- */
-#map { background: var(--white); }
 
-/* Map container fix */
+/* ------------------------------- MAP ------------------------------- */
+
+#map {
+  background: var(--white);
+}
+
 #map-canvas {
   width: 100%;
   height: 420px;
@@ -526,7 +608,6 @@ textarea {
   margin-top: 2rem;
 }
 
-/* Custom circular store marker */
 .custom-store-icon div {
   width: 42px;
   height: 42px;
@@ -540,15 +621,13 @@ textarea {
   font-weight: bold;
   font-size: 14px;
   line-height: 1;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.35);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
 }
 
-/* User location marker */
 .user-location-dot {
   font-size: 24px;
 }
 
-/* Leaflet popup styling */
 .leaflet-popup-content-wrapper {
   max-width: 400px !important;
   width: 400px !important;
@@ -561,7 +640,7 @@ textarea {
   text-align: left;
   font-family: Arial, sans-serif;
   line-height: 1.4;
-  width: 400px
+  width: 400px;
 }
 
 .store-popup button {
@@ -579,14 +658,15 @@ textarea {
   background: #333;
 }
 
-/* Fix stray lines in map */
 .leaflet-container img,
 .leaflet-container svg {
   image-rendering: auto !important;
   shape-rendering: auto !important;
 }
 
+
 /* ------------------------------- FOOTER ------------------------------- */
+
 #footer {
   background: var(--black);
   padding: 5em 2em 1em;
@@ -600,7 +680,6 @@ textarea {
   margin: 20px 0 10px;
 }
 
-/* Container for the links */
 .social-links {
   display: flex;
   justify-content: center;
@@ -609,7 +688,6 @@ textarea {
   padding: 0;
 }
 
-/* Each individual link */
 .social-links a {
   display: inline-flex;
   align-items: center;
@@ -638,20 +716,187 @@ textarea {
   font-size: 0.75em;
 }
 
-/* ------------------------- MEDIA QUERIES ------------------------- */
-@media screen and (max-width: 480px) {
-  body { min-width: 320px; }
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media screen and (max-width: 768px) {
+
+  /* -------------------------
+     GENERAL
+  ------------------------- */
+
+  body {
+    min-width: 320px;
+  }
+
+  .main-content {
+    padding: 2.5rem 1.25rem;
+  }
+
+  /*
+    Poppins 400 looked too heavy on the small screen.
+    Use the lighter 300 weight for ordinary paragraph copy.
+  */
+  p {
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 1.65;
+    letter-spacing: 0.5px;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+
+
+  /* -------------------------
+     LOGO / NAV
+  ------------------------- */
+
+  .logo {
+    max-width: 150px;
+  }
+
+
+  /* -------------------------
+     HERO / CAROUSEL
+  ------------------------- */
+
+  /*
+    Break the carousel out of the parent padding so the
+    photography uses the full width of the phone.
+  */
+  #image-slider {
+    width: 100vw;
+    max-width: none;
+
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
+  }
+
+  #image-slider .splide__track,
+  #image-slider .splide__list {
+    width: 100%;
+  }
+
+  #image-slider .splide__slide {
+    width: 100%;
+  }
+
+  #image-slider .splide__slide img {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-width: none;
+  }
+
+
+  /* -------------------------
+     BACK TO TOP
+  ------------------------- */
+
+  #backToTop {
+    width: 36px;
+    height: 36px;
+
+    bottom: 18px;
+
+    padding: 0;
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  #backToTop.show {
+    right: 16px;
+  }
+
+  #backToTop i {
+    font-size: 18px;
+    line-height: 1;
+    padding: 0;
+    margin: 0;
+  }
+
+
+  /* -------------------------
+     SERVICES
+  ------------------------- */
+
+  #serviceList dl {
+    width: 100%;
+    max-width: 280px;
+  }
+
+
+  /* -------------------------
+     ABOUT
+  ------------------------- */
+
+  #about img {
+    width: 70%;
+    max-width: 220px;
+    margin-top: 2rem;
+  }
+
+
+  /* -------------------------
+     CONTACT
+  ------------------------- */
+
+  #contactForm {
+    width: 100%;
+  }
+
+  #contact input,
+  #contact textarea,
+  #contact select,
+  #contact button {
+    font-size: 14px;
+  }
+
+  #map-canvas {
+    height: 320px;
+  }
+
+
+  /* Leaflet popup must fit mobile */
+  .leaflet-popup-content-wrapper {
+    width: auto !important;
+    max-width: 280px !important;
+  }
+
+  .store-popup {
+    width: auto;
+    max-width: 250px;
+  }
+
+
+  /* -------------------------
+     FOOTER
+  ------------------------- */
+
+  #footer {
+    padding: 3.5em 1.25em 1em;
+  }
 }
 
+
+/* ------------------------- TABLET / DESKTOP ------------------------- */
+
 @media screen and (min-width: 744px) {
+
   .main-content {
     padding: 4em 2em;
   }
-    
+
   #serviceList dl {
     width: 100%;
-    margin: auto;
-    margin-top: 2em;
+    margin: 2em auto 0;
   }
 
   #about img {
@@ -660,19 +905,24 @@ textarea {
   }
 }
 
+
 @media screen and (min-width: 992px) {
-  .menu-button, .sidenav-overlay {
+
+  .menu-button,
+  .sidenav-overlay {
     display: none;
   }
 
-  #navbar { padding: 1em 2em 0; }
+  #navbar {
+    padding: 1em 2em 0;
+  }
 
-  #nav-desktop li:hover { 
+  #nav-desktop li:hover {
     background: none;
     border-bottom: 4px solid var(--darker-green);
   }
 
-  .active { 
+  .active {
     background: none;
     border-bottom: 2px solid var(--darker-green);
   }
@@ -687,8 +937,7 @@ textarea {
 
   #serviceList dl {
     width: 90%;
-    margin: auto;
-    margin-top: 2em;
+    margin: 2em auto 0;
   }
 
   #about img {
@@ -704,28 +953,18 @@ textarea {
   }
 }
 
+
 @media (min-width: 1024px) {
+
   #nav-links {
     display: none;
   }
 }
 
+
 @media (min-width: 1025px) {
+
   .toolbar-menu-button {
     display: none;
-  }
-}
-
-@media (max-width: 768px) {
-  .logo {
-    max-width: 150px;
-  }
-
-  h2 {
-    font-size: 24px;
-  }
-
-  p {
-    font-size: 16px;
   }
 }
